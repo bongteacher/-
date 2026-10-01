@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    color: #1f2937;
+    background-color: #f8fafc;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Custom Print Styles */
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm 15mm 15mm 15mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .no-print,
+  nav,
+  header.no-print,
+  button,
+  .print-hidden {
+    display: none !important;
+  }
+
+  .print-page {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Keep answer styling readable in print */
+  .answer-highlight {
+    color: #dc2626 !important;
+    font-weight: 700 !important;
+    text-decoration: underline !important;
+  }
+
+  .print-break-inside-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* Animation utilities */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
